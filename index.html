@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Material Design Cards</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.8, maximum-scale=.8">
+    <meta http-equiv=Cache-Control content="max-age=31000000"/>
+    <meta name=author content="Iván Sánchez, Eddy Sánchez">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/1-3-0-rc-4-angular.min.js"></script>
+	<script  src="js/init.js"></script>
+</head>
+<body ng-app="angular" ng-controller="TweetController as tweets">
+	<h1 class="page-title">Material Design Tweets</h1>
+	<div class="material-card">
+		<form ng-submit="tweets.addTodo()">
+			<input type="text" ng-model="tweets.todoText" placeholder="¿Qué está pasando?">
+            <input class="btn-primary" type="hidden" value="add">
+        </form>
+    </div>
+	<section ng-repeat="tweet in tweets.todos" class="material-card">
+		<img class="img-perfil" src="img/photo.jpg" alt="">
+		<div class="header">
+			<h3 class="user-title">Iván Sánchez</h3>
+			<h4 class="user-name">@Mazyvan</h4>
+		</div>
+		<button class="principal-button">
+			<div>
+				<img class="plus" src="img/twiiter.png" alt=""><span>+</span>
+			</div>
+		</button>
+		<p class="tweet">{{tweet.text}}</p>
+		<p class="date-time">4:45pm - 15 Septiembre 2016</p>
+		<hr>
+		<div class="icons">
+			<img class="img-reply" src="img/reply.png" alt="">
+			<img class="img-retweet" src="img/retweet.png" alt="">
+			<img class="img-star" src="img/star.png" alt="">
+			<img class="img-more" src="img/more.png" alt="">
+		</div>
+	</section>
+	<footer>
+		<br>
+		<p>Created by <a href="https://www.facebook.com/mazivans">Iván Sánchez</a></p>
+		<p>Copyright (c) 2016 | MIT License</p>
+	</footer>
+</body>
+</html>
